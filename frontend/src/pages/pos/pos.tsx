@@ -79,12 +79,16 @@ export function POSPage() {
   const handleAddToCart = (product: Product) => {
     const unitPrice = product.discountPrice || product.sellingPrice;
     addToCart({
-      productId: product.id,
-      quantity,
-      unitPrice,
-      discount: 0,
-      product: { name: product.name, sku: product.sku },
-    });
+  id: product.id,
+  productId: product.id,
+  quantity: 1,
+  unitPrice: product.sellingPrice,
+  discount: 0,
+  product: {
+    name: product.name,
+    sku: product.sku,
+  },
+});
     setSearchQuery('');
     setQuantity(1);
     toast.success(`${product.name} added to cart`);
