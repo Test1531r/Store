@@ -151,6 +151,25 @@ app.use(errorHandler);
 /**
  * Server start (IMPORTANT)
  */
+app.get('/db-test', async (req, res) => {
+  try {
+    const users = await prisma.user.findMany();
+
+    res.json({
+      success: true,
+      message: 'Database connected successfully 🚀',
+      count: users.length
+    });
+
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: 'Database connection failed ❌',
+      error: err.message
+    });
+  }
+});
+
 const PORT = process.env.PORT || 5000;
 
 httpServer.listen(PORT, '0.0.0.0', () => {
@@ -177,5 +196,7 @@ process.on('SIGINT', async () => {
   httpServer.close(() => {
     console.log('Server closed');
     process.exit(0);
+
+    
   });
 });
