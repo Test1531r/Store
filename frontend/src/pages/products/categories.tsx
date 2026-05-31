@@ -32,8 +32,7 @@ import {
 
 import { toast } from 'sonner';
 
-const API =
-  'http://localhost:5000/api';
+const API = 'https://main-store-3pr5.onrender.com/api/v1';
 
 export function CategoriesPage() {
   const [categories, setCategories] =
