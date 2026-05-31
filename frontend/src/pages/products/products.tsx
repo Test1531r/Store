@@ -33,7 +33,7 @@ import {
 
 import { toast } from 'sonner';
 
-const API = 'http://localhost:5000/api/v1';
+const API = 'http://localhost:5000/api';
 
 export function ProductsPage() {
   const [products, setProducts] = useState<any[]>([]);
