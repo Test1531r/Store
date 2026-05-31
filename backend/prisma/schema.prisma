@@ -753,5 +753,5 @@ model Setting {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:123456@localhost:5432/mobile_shop"
+  url      = env("DATABASE_URL")
 }
